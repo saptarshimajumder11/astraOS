@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+
+  
+  <rect
+    x="5"
+    y="10"
+    width="54"
+    height="49"
+    rx="9"
+    fill="#F4F7FF"
+  />
+
+  <!-- Blue header -->
+  <path
+    d="M5 19
+       C5 14 9 10 14 10
+       H50
+       C55 10 59 14 59 19
+       V28
+       H5Z"
+    fill="#3182F6"
+  />
+
+  <!-- Binding ring shadows -->
+  <circle cx="19" cy="20" r="6" fill="#2056AA"/>
+  <circle cx="45" cy="20" r="6" fill="#2056AA"/>
+
+  <!-- Binding rings -->
+  <rect
+    x="15"
+    y="5"
+    width="9"
+    height="17"
+    rx="4.5"
+    fill="#F4F7FF"
+  />
+
+  <rect
+    x="40"
+    y="5"
+    width="9"
+    height="17"
+    rx="4.5"
+    fill="#F4F7FF"
+  />
+
+  <!-- Date squares -->
+  <g fill="#75A9F5">
+
+    <rect x="11" y="33" width="9" height="8" rx="2.5"/>
+    <rect x="27.5" y="33" width="9" height="8" rx="2.5"/>
+    <rect x="44" y="33" width="9" height="8" rx="2.5"/>
+
+    <rect x="11" y="46" width="9" height="8" rx="2.5"/>
+    <rect x="27.5" y="46" width="9" height="8" rx="2.5"/>
+    <rect x="44" y="46" width="9" height="8" rx="2.5"/>
+
+  </g>
+
+</svg>
