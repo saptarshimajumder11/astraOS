@@ -1,0 +1,564 @@
+ /*astraOS-corestyle*/
+            * {
+                box-sizing: border-box;
+                user-select: none;
+            }
+            html,
+            body{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                font-family: "space grotesk", monospace;
+                color:white;
+            }
+            .code.terminal{
+                font-family:"IBM plex mono",monospace;
+            }
+           
+            #desktop{
+                position:relative;
+                width:100%;
+                height:100vh;
+                overflow:hidden;
+                
+
+            }
+            #desktop {
+                background-image: url("galaxy.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat:no-repeat;
+            }
+      
+          
+            .stars{
+                position:absolute;
+                inset:0;
+                background-image:
+                radial-gradient(white 1px,transparent 1px),
+                radial-gradient(white 1px,transparent 1px);
+
+                background-size: 70px 70px, 120px 120px;
+                background-position: 0 0, 40px 60px;
+                opacity:0.35;
+                pointer-events: none;
+
+            }
+           
+            #top-bar{
+                width:100%;
+                height:50px;
+                position:absolute;
+                top:0;
+                left:0;
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                padding:0 18px;
+               
+                backdrop-filter:blur(24px);
+                border-bottom:1px solid rgba(255,255,255,0.1);
+                z-index: 5000;
+            }
+            #date-time{
+                text-align: right;
+                line-height:1.2;
+
+            }
+            #time{
+                font-size:14px;
+                font-weight:600;
+
+            }
+            #date{
+                font-size:14px;
+                opacity:0.67;
+
+            }
+            .logo{
+                font-size:15px;
+                font-weight:bold;
+                letter-spacing:3px;
+            }
+            .status{
+                color:#c5cbe0;
+                font-size:13px;
+            }
+           
+            #icons{
+                position:absolute;
+                top:70px;
+                left:20px;
+                display:flex;
+                flex-direction:column;
+                gap:12px;
+            }
+            .desktop-icon{
+                width:78px;
+                padding:9px 5px;
+                text-align:center;
+                border-radius:12px;
+                cursor:pointer;
+                transition:0.2s;
+            
+            }
+            .desktop-icon:hover{
+                background:rgba(255,255,255,0.1);
+                transform:translateY(-2px);
+
+            }
+            .desktop-icon .icon{
+                display:block;
+                font-size:30px;
+                margin-bottom:5px;
+            }
+            .desktop-icon span:last-child{
+                font-size:12px;
+            
+            }
+          
+            .window{
+                position:absolute;
+                width:430px;
+                height:450px;
+                min-width:280px;
+                min-height:180px;
+                background:rgba(15,18,38,0.50);
+                backdrop-filter:blur(20px);
+                border:1px solid rgba(255,255,255,0.15);
+                border-radius:14px;
+                overflow:hidden;
+                box-shadow:0 25px 70px rgba(0,0,0,0.55);
+                animation:windowOpen 0.18s ease;
+
+            }
+            @keyframes windowOpen{
+                from{
+                    opacity:0;
+                    transform: scale(0.96);
+                }
+                to{
+                    opacity:1;
+                    transform: scale(1);
+                
+                }
+            }
+         
+            .titlebar{
+                height:42px;
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                padding:0 12px;
+                background:rgba(255,255,255,0.06);
+                border-bottom:1px solid rgba(255,255,255,0.08);
+                cursor:grab;
+            
+            }
+            .titlebar:active{
+                cursor:grabbing;
+            }
+            .title{
+                font-size:14px;
+                font-weight:bold;
+            }
+            .controls{
+                display:flex;
+                gap:7px;
+                
+            }
+            .control{
+    width:14px;
+    height:14px;
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    transition:0.15s;
+}
+
+.control:hover{
+    transform:scale(1.15);
+}
+
+.close{
+    background-image:url("svg/close.svg");
+}
+
+.minimize{
+    background-image:url("svg/minimize.svg");
+}
+
+.maximize{
+    background-image:url("svg/maximize.svg");
+}
+        
+
+        .window-content {
+         padding: 18px;
+         height: calc(100% - 42px);
+         overflow: auto;
+     }
+
+.notes-area {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    background: rgba(255,255,255,0.05);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+.file-item {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.file-item:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.setting-row {
+         display: flex;
+         justify-content: space-between;
+         padding: 12px 0;
+         border-bottom: 1px solid rgba(255,255,255,0.08);
+         }
+        #taskbar {
+            position:absolute;
+            left:50%;
+            bottom:18px;
+            transform: translateX(-50%);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            width:90%;
+            padding:8px 10px;
+            background: rgba(20,22,30,0.5);
+            border:1px solid #383c45;
+            border-radius:18px;
+            box-sizing:border-box;
+        backdrop-filter: blur(10px);
+        }
+        .taskbar-left {
+            display:flex;
+            align-items:center;
+            gap:4px;
+        }
+        #taskbar button {
+            border:0;
+            background:transparent;
+            color:#e7e7e7;
+            padding:9px 10px;
+            border-radius:11px;
+            font-size:13px;
+            cursor:pointer;
+           
+        }
+
+        #taskbar button:hover {
+            background:#30343d;
+        } 
+        .taskbar-app img{
+            width:100%;
+            height:100%;
+            display:flex;
+            filter: drop-shadow(0  0 1px
+            rgba(255,255,255,0.8));
+            justify-content:center;
+            
+        }
+        .start-button {
+            width:50px;
+            height:40px;
+            padding:6px !important;
+            background:transparent !important;
+            font-weight: bold;
+            transition: transform 0.15s ease;
+        }
+        .start-button:active {
+            transform: scale(0.9);
+        }
+        .start-button img{
+            width:35px;
+            height:35px;
+            object-fit:contain;
+            display:block;
+            margin:auto;
+            
+        }
+     
+        
+        
+        .taskbar-app img {
+            width:100%;
+            height: 100%;
+            display:block;
+        }
+        .taskbar-app{
+            width:60px;
+            height:60px;
+            border:1px solid
+            rgba(255,255,255,0.2);
+            background:transparent;
+            padding:6px;
+            font-size:20px;
+            border-radius:10px;
+            cursor:pointer;
+            align-items:center;
+            gap:10px;
+        }
+        .taskbar-app:hover{
+            background:rgba(255,255,255,0.1);
+            transform:translateY(-2px);
+
+        }
+        .taskbar-app:active{
+            transform:scale(0.92);
+        }
+       
+
+.calculator-app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.calculator-display {
+    height: 65px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.052);
+    border-radius: 10px;
+    color: white;
+    font-size: 28px;
+    overflow: hidden;
+}
+
+.calculator-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calculator-grid button {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.calculator-grid button:hover {
+    background: rgba(150,60,255,0.22);
+}
+
+.calculator-grid button:active {
+    transform: scale(0.94);
+}
+
+.calculator-grid .operator {
+    background: rgba(150,60,255,0.20);
+}
+
+.calculator-grid .equals {
+    background: #651eb6;
+}
+
+.calculator-grid .clear {
+    background: rgba(220,60,100,0.20);
+}
+
+ #start-menu {
+    position: absolute;
+
+    left: 50%;
+    bottom: 78px;
+    transform: translateX(-50%) scale(0.75);
+    transform-origin: bottom center;
+
+    width: 700px;
+    padding: 20px;
+    min-height:420px;
+
+    background: rgba(25, 28, 38, 0.92);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.45);
+    backdrop-filter: blur(24px);
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.22s cubic-bezier(.2,.8,.2,1),
+        visibility 0.22s;
+
+    z-index: 1000;
+}
+
+#start-menu.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) scale(1);
+}
+
+.start-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    color: white;
+}
+
+#start-menu button {
+    display: flex;
+    flex-direction:row;
+    gap: 12px;
+width:80px;
+height:80px;
+    border: none;
+    background: transparent;
+    color: #eee;
+justify-content:center;
+align-items: center;
+    text-align: left;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+   margin-top:30px;
+    
+}
+
+#start-menu button:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+#start-menu button img {
+    width: 50px;
+    height: 50px;
+   transform: translateY(15px);
+    margin-bottom:6px;
+}
+
+
+.start-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    color: white;
+}
+.logo img{
+    height:20px;
+    width:auto;
+    display:block;
+    object-fit: contain;
+}
+
+
+
+#start-menu button:hover {
+    background: rgba(255,255,255,0.1);
+
+}
+
+.system-status{
+    display:flex;
+    align-items:center;
+    gap:21px;
+    color:#e5e7eb;
+    font-size:13px;
+}
+.system-status img{
+    width:24px;
+    height:24px;
+    object-fit:contain;
+    opacity:0.69;
+}
+#widget-panel {
+    position:absolute;
+    top:60px;
+    right:15px;
+    width:300px;
+    height:calc(100vh - 90px);
+    background:rgba(15,18,38,0.65);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:18px;
+    padding:18px;
+    box-sizing:border-box;
+    color:white;
+    transform:translateX(120%);
+    transition:transform 0.25s ease;
+    z-index:4000;
+    overflow-y: auto;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+#widget-panel.show{
+    transform:translateX(0);
+}
+.widget-header{
+    display:flex;
+    position:relative;
+    width:100%;
+    height:35px;
+    
+}
+.widget-header h2{
+    margin:0;
+}
+#widget-close{
+    top:0px;
+    right:0px;
+    position:absolute;
+    width:24px;
+    height:24px;
+    padding:0;
+    background:transparent;
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+#widget-close img{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+#widget-close:hover{
+    background:transparent;
+}
+.start-title img{
+    height: 24px;
+}
+#widget-panel{
+    opacity: 0.75;
+   
+}
